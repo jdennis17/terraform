@@ -29,19 +29,19 @@ data "aws_security_group" "existing_sg_id" {
 }
 
 data "aws_ssm_parameter" "db_password" {
-  name = "/FM-MT-OS-DHA/passwords/onestream-db"
+  name = "/db/passwords/onestream-db"
   with_decryption = true  # required so the password is readable/useable when setting
 
 }
 
 data "aws_ssm_parameter" "ssl_password" {
-  name = "/FM-MT-OS-DHA/passwords/sslcert"
+  name = "/ssl/passwords/sslcert"
   with_decryption = true  # required so the password is readable/useable when setting
 
 }
 
 data "aws_ssm_parameter" "os_api_key" {
-  name = "/FM-MT-OS-DHA/passwords/os-apikey"
+  name = "/key/passwords/os-apikey"
   with_decryption = true  # required so the password is readable/useable when setting
 
 }
@@ -297,4 +297,5 @@ output "aws_instance_ip" {
   value = aws_instance.irit_os_vm.private_ip
   description = "The private IP of the EC2 instance"
   
+
 }
