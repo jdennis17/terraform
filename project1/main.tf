@@ -1,5 +1,4 @@
-## DATA
-
+## DATA - existing resources
 data "aws_vpc" "existing_vpc" {
   id = var.existing_vpc
 
@@ -76,10 +75,6 @@ resource "aws_instance" "irit_os_vm" {
             <powershell>
           $timeZone = "Eastern Standard Time"  
           $start = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date), $timeZone)
-          $pemCert = @"
------BEGIN CERTIFICATE-----
------END CERTIFICATE-----
-"@
             $certPath = "C:temprootCA.pem"
             # Save the PEM certificate to a file
             $pemCert | Out-File -FilePath $certPath -Encoding ascii
